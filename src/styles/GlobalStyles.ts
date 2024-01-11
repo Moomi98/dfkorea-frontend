@@ -6,6 +6,8 @@ const GlobalStyles = createGlobalStyle`
 :root {
     --color-primary: #7a22d6;
     --color-dark-gray : #333333;
+    --color-light-gray: #dddddd;
+    --color-overlay: #00000098;
 }
 `;
 
