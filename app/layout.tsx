@@ -24,7 +24,7 @@ export default function RootLayout({
         <GlobalStyles />
         <StyledComponentsProvider>
           <Header />
-          {children}
+          <main>{children}</main>
         </StyledComponentsProvider>
       </body>
     </html>
