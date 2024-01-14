@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     --color-dark-gray : #333333;
     --color-light-gray: #dddddd;
     --color-overlay: #00000098;
+    --color-overlay-light: #00000060;
 }
 `;
 
