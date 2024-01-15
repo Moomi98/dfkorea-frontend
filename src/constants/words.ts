@@ -7,6 +7,7 @@ const words: IWords = {
     cancel: "취소",
     register: "등록",
     title: "제목",
+    more: "자세히 보기",
   },
 
   Header: {

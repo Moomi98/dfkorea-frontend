@@ -6,9 +6,13 @@
 
 html,
 body {
-  font-size: 14px;
+  font-size: 16px;
   height: 100%;
   overflow-x: hidden;
+
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
 }
 
 main {
@@ -28,31 +32,31 @@ li {
 }
 
 h1 {
-  font-size: 60px;
+  font-size: 4rem;
   font-weight: 700;
   margin: 24px 0;
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 2.25rem;
   font-weight: 700;
   margin: 20px 0;
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   margin: 16px 0;
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   margin: 12px 0;
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   margin: 8px 0;
 }

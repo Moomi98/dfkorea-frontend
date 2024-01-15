@@ -65,7 +65,7 @@ const HamburgerMenu = styled(IoMdMenu)`
   }
 `;
 
-const Menu = styled.li`
+const Menu = styled(Link)`
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-dark-gray);
@@ -137,6 +137,10 @@ export default function Header() {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const [closeMenuAnimation, setCloseMenuAnimation] = useState<boolean>(false);
 
+  const linkMapper = {
+    products: "/products",
+  };
+
   const handleMenu = () => {
     if (openMenu) {
       setCloseMenuAnimation(true);
@@ -160,16 +164,18 @@ export default function Header() {
             <CloseButtonContainer>
               <IoMdClose size={40} onClick={handleMenu} />
             </CloseButtonContainer>
-            <Menu>{getWord(name, "productList")}</Menu>
+            <Menu href={linkMapper.products}>
+              {getWord(name, "productList")}
+            </Menu>
             <Hr />
-            <Menu>{getWord(name, "productList")}</Menu>
             <Hr />
           </OverlayedMenu>
         </>
       )}
       <MenuContainer>
-        <Menu>{getWord(name, "productList")}</Menu>
-        <Menu>{getWord(name, "productList")}</Menu>
+        <Menu href={linkMapper.products} onClick={handleMenu}>
+          {getWord(name, "productList")}
+        </Menu>
       </MenuContainer>
     </Root>
   );

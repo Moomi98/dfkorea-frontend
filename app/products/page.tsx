@@ -1,17 +1,27 @@
-import Banner from "@/src/components/common/Banner";
+"use client";
+
+import ProductCard from "@/src/components/products/ProductCard";
+import styled from "styled-components";
+
+const Container = styled.main`
+  padding: 1rem;
+`;
 
 export default function Products() {
-  const banners = [
+  const productCards = [
     {
-      id: 1,
+      id: "test1",
       image: "/images/testBanner.jpg",
-      title: "Products",
-      subtitle: "DFKorea의 제품들을 소개합니다.",
+      title: "TestTitle1",
+      subtitle: "Test Subtitle1",
+      to: "http://naver.com",
     },
   ];
   return (
-    <div>
-      <Banner banners={banners} />
-    </div>
+    <Container>
+      {productCards.map((card, idx) => (
+        <ProductCard key={idx} card={card} />
+      ))}
+    </Container>
   );
 }
