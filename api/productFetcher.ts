@@ -5,11 +5,11 @@ export const getProductList = async (): Promise<TProductCard[]> => {
     const result: TProduct[] = await GET("/product-list");
 
     return result.map((product) => ({
-      id: product._id,
+      id: product.id,
       thumbnail: product.thumbnail,
       subtitle: product.subtitle ?? "",
       title: product.name,
-      to: `/product/${product.modelNo}`,
+      to: `/product/${product.id}`,
     }));
   } catch (e) {
     console.error(e);

@@ -7,10 +7,9 @@ export type TProductCard = {
 };
 
 export type TProduct = {
-  _id: string | number;
+  id: string | number;
   thumbnail: string;
   name: string;
-  modelNo: string;
   productDetail: string;
   subtitle?: string;
 };
