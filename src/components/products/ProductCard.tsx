@@ -7,13 +7,15 @@ import getWord from "@/src/constants/words";
 
 import { useRouter } from "next/navigation";
 
+import { TProductCard } from "@/src/types/TProduct";
+
 const Container = styled.div`
   width: 100%;
   height: 300px;
   display: flex;
   gap: 3rem;
   @media screen and (max-width: 768px) {
-    height: 500px;
+    height: auto;
     flex-direction: column;
     gap: 1rem;
   }
@@ -49,16 +51,8 @@ const Subtitle = styled.span`
   margin: 1rem 0;
 `;
 
-type ProductCard = {
-  id: string | number;
-  image: string;
-  title: string;
-  subtitle: string;
-  to: string;
-};
-
 type ProductCardProps = {
-  card: ProductCard;
+  card: TProductCard;
 };
 
 export default function ProductCard(props: ProductCardProps) {
@@ -71,7 +65,7 @@ export default function ProductCard(props: ProductCardProps) {
   return (
     <Container>
       <ThumbnailWrapper>
-        <Thumbnail src={props.card.image} alt="thumbnail" fill />
+        <Thumbnail src={props.card.thumbnail} alt="thumbnail" fill />
       </ThumbnailWrapper>
       <InfoWrapper>
         <h2>{props.card.title}</h2>
