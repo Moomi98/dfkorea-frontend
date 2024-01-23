@@ -7,12 +7,17 @@ import {
 } from "react-icons/md";
 import styled, { css } from "styled-components";
 
-const Container = styled.button<{ $hasIcon: boolean; $primary: boolean }>`
+const Container = styled.button<{
+  $width: string;
+  $hasIcon: boolean;
+  $primary: boolean;
+}>`
   border-radius: 0.5rem;
   padding: ${(props) =>
     props.$hasIcon ? "1rem 1rem 1rem 1.5rem" : "1rem 1.5rem"};
-  width: fit-content;
+  width: ${(props) => props.$width};
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 4px;
   outline: none;
@@ -32,6 +37,7 @@ type ButtonPreset = "primary" | "normal";
 type IconPreset = "add" | "regist" | "delete" | "cancel" | "move";
 interface ButtonProps {
   text: string;
+  width?: string;
   value?: string | number | boolean;
   preset?: ButtonPreset;
   icon?: IconPreset;
@@ -43,6 +49,7 @@ interface ButtonProps {
 export default function Button(props: ButtonProps) {
   const {
     text,
+    width = "fit-content",
     value,
     preset = "primary",
     icon,
@@ -63,6 +70,7 @@ export default function Button(props: ButtonProps) {
   return (
     <Container
       onClick={() => onClick && onClick(value)}
+      $width={width}
       $primary={preset === "primary" ?? false}
       $hasIcon={!!icon}
     >
