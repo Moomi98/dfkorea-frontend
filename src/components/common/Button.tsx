@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BiPlus } from "react-icons/bi";
 import {
   MdCreate,
@@ -11,6 +12,7 @@ const Container = styled.button<{
   $width: string;
   $hasIcon: boolean;
   $primary: boolean;
+  $disabled: boolean;
 }>`
   border-radius: 0.5rem;
   padding: ${(props) =>
@@ -24,7 +26,11 @@ const Container = styled.button<{
   border: none;
   cursor: pointer;
   background-color: ${(props) =>
-    props.$primary ? css`var(--color-primary)` : css`white`};
+    props.$disabled
+      ? css`var(--color-disabled)`
+      : props.$primary
+      ? css`var(--color-primary)`
+      : css`white`};
   color: ${(props) => (props.$primary ? "white" : "black")};
 `;
 
@@ -54,6 +60,7 @@ export default function Button(props: ButtonProps) {
     preset = "primary",
     icon,
     onClick,
+    disabled = false,
     bold = false,
   } = props;
 
@@ -73,6 +80,7 @@ export default function Button(props: ButtonProps) {
       $width={width}
       $primary={preset === "primary" ?? false}
       $hasIcon={!!icon}
+      $disabled={disabled}
     >
       <ButtonText $bold={bold ?? false}>{text}</ButtonText>
       {icon && iconPreset[icon]}
