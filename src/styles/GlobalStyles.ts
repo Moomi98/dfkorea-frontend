@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --color-light-gray: #dddddd;
     --color-overlay: #00000098;
     --color-overlay-light: #00000060;
+    --color-disabled: #cccccc;
 }
 `;
 
