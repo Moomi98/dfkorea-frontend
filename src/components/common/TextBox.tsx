@@ -30,6 +30,7 @@ type TextBoxProps = {
   width?: string;
   showClearButton?: boolean;
   value?: string;
+  onChange?: Function;
 };
 
 export default function TextBox(props: TextBoxProps) {
@@ -39,6 +40,7 @@ export default function TextBox(props: TextBoxProps) {
 
   const setText = (event: ChangeEvent<HTMLInputElement>) => {
     setCurrentValue(event.target.value);
+    props.onChange && props.onChange(event.target.value);
   };
 
   return (

@@ -14,6 +14,11 @@ const words: IWords = {
     logo: "DF Korea",
     productList: "제품 목록",
   },
+
+  Login: {
+    invalidId: "아이디가 일치하지 않습니다.",
+    invalidPassword: "비밀번호가 일치하지 않습니다.",
+  },
 };
 
 export default function getWord(target: string, key: string): string {
