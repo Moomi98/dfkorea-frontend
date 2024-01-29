@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 import { MdClear } from "react-icons/md";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, MouseEventHandler, useState } from "react";
 
 const Container = styled.div<{ width: string }>`
   width: 100%;
@@ -43,11 +43,16 @@ export default function TextBox(props: TextBoxProps) {
     props.onChange && props.onChange(event.target.value);
   };
 
+  const clearText = () => {
+    setCurrentValue("");
+    props.onChange && props.onChange("");
+  };
+
   return (
     <Container width={width}>
       <Input value={currentValue} onChange={setText} />
       {showClearButton && currentValue.length > 0 && (
-        <ClearButton size={"1.5rem"} onClick={() => setCurrentValue("")} />
+        <ClearButton size={"1.5rem"} onClick={clearText} />
       )}
     </Container>
   );
