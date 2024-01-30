@@ -20,6 +20,6 @@ export const POST = async (url: string, params: object | string) => {
 
     return result.data;
   } catch (e: any) {
-    throw new Error(e);
+    return false;
   }
 };

@@ -16,8 +16,7 @@ const words: IWords = {
   },
 
   Login: {
-    invalidId: "아이디가 일치하지 않습니다.",
-    invalidPassword: "비밀번호가 일치하지 않습니다.",
+    invalid: "계정이 일치하지 않습니다.",
   },
 };
 
