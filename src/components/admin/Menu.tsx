@@ -63,7 +63,7 @@ export default function Menu() {
     <Container>
       <Logo href="/admin/home">{getWord("Header", "logo")}</Logo>
       <MenuList>
-        <FlexContainer href="/admin/productList">
+        <FlexContainer href="/admin/products/list">
           <FaListUl size="1.2rem" />
           <MenuItem>{getWord("Header", "productList")}</MenuItem>
         </FlexContainer>
