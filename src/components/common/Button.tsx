@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { BiPlus } from "react-icons/bi";
 import {
@@ -50,9 +51,12 @@ interface ButtonProps {
   onClick?: Function;
   disabled?: boolean;
   bold?: boolean;
+  to?: string;
 }
 
 export default function Button(props: ButtonProps) {
+  const router = useRouter();
+
   const {
     text,
     width = "fit-content",
@@ -74,9 +78,14 @@ export default function Button(props: ButtonProps) {
     move: <MdNavigateNext size={iconSize} />,
   };
 
+  const onButtonClicked = () => {
+    onClick && onClick(value);
+    props.to && router.push(props.to);
+  };
+
   return (
     <Container
-      onClick={() => onClick && onClick(value)}
+      onClick={onButtonClicked}
       $width={width}
       $primary={preset === "primary" ?? false}
       $hasIcon={!!icon}
