@@ -11,6 +11,8 @@
   "dependencies": {
     "@types/styled-components": "^5.1.34",
     "next": "14.0.4",
+    "quill-image-resize-module-react": "^3.0.0",
+    "quill-image-resize-module-ts": "^3.0.3",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
