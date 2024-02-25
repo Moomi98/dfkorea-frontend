@@ -18,7 +18,7 @@ export type TProductAdminColumn = {
 export type TProduct = {
   id: Tid;
   thumbnail: string;
-  name: string;
+  title: string;
   productDetail: string;
   subtitle?: string;
 };

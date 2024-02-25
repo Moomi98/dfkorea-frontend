@@ -8,7 +8,7 @@ export const getProductList = async (): Promise<TProductCard[]> => {
       id: product.id,
       thumbnail: product.thumbnail,
       subtitle: product.subtitle ?? "",
-      title: product.name,
+      title: product.title,
       to: `/product/${product.id}`,
     }));
   } catch (e) {

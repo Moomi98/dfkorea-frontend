@@ -6,11 +6,27 @@ import {
   GridRowsProp,
   GridValueFormatterParams,
 } from "@mui/x-data-grid";
+import styled from "styled-components";
 
 import { createdAtString } from "@/src/utils/time";
 import { insertDefaultColumnOptions } from "@/src/utils/datagrid";
+import getWord from "@/src/constants/words";
 
 import { TProductAdminColumn } from "@/src/types/TProduct";
+import Button from "@/src/components/common/Button";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+`;
+
+const ButtonContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
 
 export default function Products() {
   const columns: GridColDef[] = insertDefaultColumnOptions([
@@ -49,5 +65,12 @@ export default function Products() {
       createdAt: 1707823563346,
     },
   ];
-  return <DataGrid items={testItems} columns={columns} />;
+  return (
+    <Container>
+      <ButtonContainer>
+        <Button text={getWord("Admin", "write")} to="/admin/products/write" />
+      </ButtonContainer>
+      <DataGrid items={testItems} columns={columns} />
+    </Container>
+  );
 }

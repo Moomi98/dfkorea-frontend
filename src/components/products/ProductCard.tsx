@@ -58,6 +58,8 @@ type ProductCardProps = {
 export default function ProductCard(props: ProductCardProps) {
   const router = useRouter();
 
+  console.log(props.card);
+
   const goToDetailPage = (id: string) => {
     router.push(`/products/detail?id=${id}`);
   };
