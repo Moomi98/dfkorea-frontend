@@ -9,6 +9,7 @@ import getWord from "@/src/constants/words";
 import Button from "@/src/components/common/Button";
 
 import { addProductPost } from "@/api/admin";
+import { useRouter } from "next/navigation";
 
 const Container = styled.div`
   width: 100%;
@@ -22,10 +23,11 @@ const Container = styled.div`
 export default function Write() {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
+  const router = useRouter();
 
   const createProductPost = async () => {
-    const result = await addProductPost(title, text);
-    console.log("new post id : ", result);
+    await addProductPost(title, text);
+    router.push("/admin/products/list");
   };
 
   return (
@@ -40,6 +42,7 @@ export default function Write() {
       <Button
         text={getWord("Common", "register")}
         onClick={createProductPost}
+        disabled={title.length === 0 || text.length === 0}
       />
     </Container>
   );
