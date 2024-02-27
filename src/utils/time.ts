@@ -2,10 +2,9 @@ export const createdAtString = (time: number): string => {
   const msgap = Date.now() - time;
   const minute = 60000;
 
-  const minuteGap = Math.floor(msgap / minute);
-  const hourGap = Math.floor(msgap / (minute * 60));
-  const dayGap = Math.floor(msgap / (minute * 60 * 60));
-  const monthGap = Math.floor(msgap / (minute * 60 * 60 * 60));
+  const minuteGap = Math.round(msgap / minute);
+  const hourGap = Math.round(msgap / (minute * 60));
+  const dayGap = Math.round(msgap / (minute * 60 * 60));
 
   if (minuteGap === 0) return "방금 전";
   else if (minuteGap < 60) return `${minuteGap}분 전`;
