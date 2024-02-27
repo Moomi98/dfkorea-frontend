@@ -6,6 +6,7 @@ export type TProductCard = {
   title: string;
   subtitle: string;
   to: string;
+  createdAt: number;
 };
 
 export type TProductAdminColumn = {
@@ -21,4 +22,5 @@ export type TProduct = {
   title: string;
   productDetail: string;
   subtitle?: string;
+  createdAt: number;
 };

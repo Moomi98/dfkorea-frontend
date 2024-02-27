@@ -1,1 +1,1 @@
-export type Tid = string | number;
+export type Tid = string;

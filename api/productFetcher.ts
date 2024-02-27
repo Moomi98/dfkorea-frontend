@@ -1,5 +1,6 @@
 import { GET } from "@/api/index";
 import { TProduct, TProductCard } from "@/src/types/TProduct";
+
 export const getProductList = async (): Promise<TProductCard[]> => {
   try {
     const result: TProduct[] = await GET("/product-list");
@@ -10,6 +11,7 @@ export const getProductList = async (): Promise<TProductCard[]> => {
       subtitle: product.subtitle ?? "",
       title: product.title,
       to: `/product/${product.id}`,
+      createdAt: product.createdAt,
     }));
   } catch (e) {
     console.error(e);

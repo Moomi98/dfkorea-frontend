@@ -15,6 +15,9 @@ import getWord from "@/src/constants/words";
 import { TProductAdminColumn } from "@/src/types/TProduct";
 import Button from "@/src/components/common/Button";
 
+import { getProductList } from "@/api/productFetcher";
+import { useEffect, useState } from "react";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,6 +30,13 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
+
+type TAdminProduct = {
+  id: string;
+  order: number;
+  title: string;
+  createdAt: number;
+};
 
 export default function Products() {
   const columns: GridColDef[] = insertDefaultColumnOptions([
@@ -50,27 +60,27 @@ export default function Products() {
     },
   ]);
 
-  const testItems: GridRowsProp<TProductAdminColumn> = [
-    { id: 8, order: 1, title: "Frances", createdAt: 12931123 },
-    {
-      id: 9,
-      order: 2,
-      title: "Frances111",
-      createdAt: Date.now(),
-    },
-    {
-      id: 10,
-      order: 3,
-      title: "Frances222",
-      createdAt: 1707823563346,
-    },
-  ];
+  const [productList, setProductList] = useState<TAdminProduct[]>([]);
+
+  const fetchProductList = async () => {
+    const result = await getProductList();
+    const formattedProductList = result.map((data, idx) => ({
+      ...data,
+      order: idx + 1,
+    }));
+    setProductList(formattedProductList);
+  };
+
+  useEffect(() => {
+    fetchProductList();
+  }, []);
+
   return (
     <Container>
       <ButtonContainer>
         <Button text={getWord("Admin", "write")} to="/admin/products/write" />
       </ButtonContainer>
-      <DataGrid items={testItems} columns={columns} />
+      <DataGrid items={productList} columns={columns} />
     </Container>
   );
 }
