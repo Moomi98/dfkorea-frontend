@@ -7,6 +7,7 @@ const words: IWords = {
     cancel: "취소",
     register: "등록",
     title: "제목",
+    subtitle: "부제목",
     more: "자세히 보기",
   },
 
@@ -23,6 +24,8 @@ const words: IWords = {
   Admin: {
     write: "글 쓰기",
     stockManagement: "재고 관리",
+    thumbnail: "이 곳에 썸네일을 등록해주세요.",
+    warning: "사진의 크기는 20mb 이하만 등록 가능합니다.",
   },
 };
 
