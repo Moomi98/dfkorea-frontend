@@ -10,6 +10,7 @@ import Button from "@/src/components/common/Button";
 
 import { addProductPost } from "@/api/admin";
 import { useRouter } from "next/navigation";
+import ThumbnailInput from "@/src/components/write/ThumbnailInput";
 
 const Container = styled.div`
   width: 100%;
@@ -20,8 +21,16 @@ const Container = styled.div`
   gap: 1rem;
 `;
 
+const TitleWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+`;
+
 export default function Write() {
   const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
+  const [thumbnail, setThumbnail] = useState(null);
   const [text, setText] = useState("");
   const router = useRouter();
 
@@ -32,12 +41,21 @@ export default function Write() {
 
   return (
     <Container>
-      <TextBox
-        fontWeight={700}
-        fontSize="large"
-        placeholder={getWord("Common", "title")}
-        onChange={setTitle}
-      />
+      <TitleWrapper>
+        <TextBox
+          fontWeight={700}
+          fontSize="large"
+          placeholder={getWord("Common", "title")}
+          onChange={setTitle}
+        />
+        <TextBox
+          fontWeight={500}
+          fontSize="medium"
+          placeholder={getWord("Common", "subtitle")}
+          onChange={setSubtitle}
+        />
+      </TitleWrapper>
+      <ThumbnailInput onChange={setThumbnail} />
       <Editor onChange={setText} />
       <Button
         text={getWord("Common", "register")}
