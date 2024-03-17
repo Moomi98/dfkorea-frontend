@@ -1,4 +1,4 @@
-import Banner from "@/src/components/common/Banner";
+import Slider from "@/src/components/common/Slider";
 
 export default function ProductsLayout({
   children,
@@ -15,7 +15,7 @@ export default function ProductsLayout({
   ];
   return (
     <>
-      <Banner banners={banners} />
+      <Slider sliders={banners} />
       {children}
     </>
   );

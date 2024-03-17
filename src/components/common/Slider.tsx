@@ -4,14 +4,16 @@ import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
-import "@/src/components/common/Banner.css";
+
+import styled from "styled-components";
+
+import "@/src/components/common/Slider.css";
 
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
-import styled from "styled-components";
 
-const BannerOverlay = styled.div`
+const SliderOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +26,7 @@ const BannerOverlay = styled.div`
   flex-direction: column;
 `;
 
-const BannerImage = styled(Image)`
+const SliderImage = styled(Image)`
   position: relative;
   object-fit: cover;
 `;
@@ -40,17 +42,21 @@ const Subtitle = styled.h5`
   font-weight: 500;
 `;
 
-type TBanner = {
+type TSlider = {
   id: string | number;
   image: string;
   title?: string;
   subtitle?: string;
   onClick?: Function;
 };
-type TBannerProps = {
-  banners: TBanner[];
+
+type TSliderProps = {
+  sliders: TSlider[];
+  width?: string;
+  height?: string;
 };
-export default function Banner(props: TBannerProps) {
+
+export default function Slider(props: TSliderProps) {
   return (
     <Swiper
       spaceBetween={50}
@@ -59,12 +65,12 @@ export default function Banner(props: TBannerProps) {
       pagination
       navigation
     >
-      {props.banners.map((banner) => (
+      {props.sliders.map((banner) => (
         <SwiperSlide
           key={banner.id}
           onClick={() => banner.onClick && banner.onClick(banner.id)}
         >
-          <BannerImage
+          <SliderImage
             style={{ objectFit: "cover" }}
             alt="banner"
             src={banner.image}
@@ -72,10 +78,10 @@ export default function Banner(props: TBannerProps) {
             priority
           />
           {banner.title && (
-            <BannerOverlay>
+            <SliderOverlay>
               <Title>{banner.title}</Title>
               <Subtitle>{banner.subtitle}</Subtitle>
-            </BannerOverlay>
+            </SliderOverlay>
           )}
         </SwiperSlide>
       ))}
