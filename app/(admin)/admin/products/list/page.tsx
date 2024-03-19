@@ -1,6 +1,6 @@
 "use client";
 
-import DataGrid from "@/src/components/common/DataGrid";
+import DataGrid from "@/src/components/common/DataGrid";
 import {
   GridColDef,
   GridRowsProp,
