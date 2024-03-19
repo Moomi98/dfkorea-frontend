@@ -1,7 +1,7 @@
 "use client";
 
 import TextBox from "@/src/components/common/TextBox";
-import Editor from "@/Editor";
+import Editor from "@/src/components/admin/Editor";
 import { useState } from "react";
 import styled from "styled-components";
 
