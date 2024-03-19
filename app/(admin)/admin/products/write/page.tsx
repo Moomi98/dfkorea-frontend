@@ -30,12 +30,12 @@ const TitleWrapper = styled.div`
 export default function Write() {
   const [title, setTitle] = useState("");
   const [subtitle, setSubtitle] = useState("");
-  const [thumbnail, setThumbnail] = useState(null);
+  const [thumbnail, setThumbnail] = useState<File | null>(null);
   const [text, setText] = useState("");
   const router = useRouter();
 
   const createProductPost = async () => {
-    await addProductPost(title, text);
+    await addProductPost(title, thumbnail, text);
     router.push("/admin/products/list");
   };
 

@@ -1,4 +1,9 @@
-import { ref, uploadString, getDownloadURL } from "firebase/storage";
+import {
+  ref,
+  uploadString,
+  uploadBytes,
+  getDownloadURL,
+} from "firebase/storage";
 import { storage } from "@/src/firebase/firebase";
 
 export const convertContentImageSrcToLink = (
@@ -15,7 +20,7 @@ export const convertContentImageSrcToLink = (
     .map((src) => {
       const storageRef = ref(
         storage,
-        `image/${contentId}/${Date.now()}-${src.slice(0, 10)}`
+        `image/content/${contentId}/${Date.now()}-${src.slice(0, 10)}`
       );
       return uploadString(storageRef, src, "data_url");
     });
@@ -32,4 +37,18 @@ export const convertContentImageSrcToLink = (
 
       return doc.getElementsByTagName("body")[0].innerHTML;
     });
+};
+
+export const getThumbnailLink = async (
+  file: File,
+  contentId: string | number
+) => {
+  const storageRef = ref(
+    storage,
+    `image/thumbnail/${contentId}/${Date.now()}}`
+  );
+  const snapshot = await uploadBytes(storageRef, file);
+  const url = await getDownloadURL(snapshot.ref);
+
+  return url;
 };
