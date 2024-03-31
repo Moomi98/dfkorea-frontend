@@ -30,9 +30,9 @@ const PreviewContainer = styled.div`
   border-radius: 0.5rem;
 `;
 
-const SelectThumbnail = styled.label<{ show: boolean }>`
+const SelectThumbnail = styled.label<{ $show: boolean }>`
   position: absolute;
-  display: ${(props) => (props.show ? css`block` : css`none`)};
+  display: ${(props) => (props.$show ? css`block` : css`none`)};
   width: 100%;
   height: 100%;
   top: 0;
@@ -106,7 +106,7 @@ export default function ThumbnailInput(props: ThumbnailInputProps) {
           </PreviewContainer>
         )}
       </ImageInputContainer>
-      <SelectThumbnail show={showSelectThumbnail} htmlFor="thumbnail" />
+      <SelectThumbnail $show={showSelectThumbnail} htmlFor="thumbnail" />
     </Container>
   );
 }
