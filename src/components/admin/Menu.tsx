@@ -11,6 +11,7 @@ import getWord from "@/src/constants/words";
 import Link from "next/link";
 
 const Container = styled.aside`
+  position: fixed;
   width: 200px;
   height: 100%;
   padding: 80px 30px;

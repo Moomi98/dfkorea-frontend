@@ -11,7 +11,9 @@ const Contaier = styled.div`
 `;
 
 const Child = styled.div`
-  width: 100%;
+  position: absolute;
+  left: 200px;
+  width: calc(100% - 200px);
   min-height: 100%;
   padding: 1.5rem;
 `;
